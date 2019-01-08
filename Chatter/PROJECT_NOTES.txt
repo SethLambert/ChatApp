@@ -1,0 +1,18 @@
+Chatter Version 0.1 04/24/2018
+Created by: Seth Lambert
+
+This project implemenets a server application that runs a multithreaded socket connection. The server allows more than one client to connect at once. The server maintains user data and will not allow duplicate registrations. 
+
+There is a text file that keeps track of the users status. It is default to NOT_ACTIVE but updates to ACTIVE when the user logs in. This is how we are able to populate the friends list. 
+
+Once friends are logged in they can choose to connect. Once connected, there is a MessageQueue text file that is meant to store and display messages whenever the server is called. This is not instant, it works more like email.
+
+When the client enters a LOGOUT command, they are prompted to enter a custom away message that would be displayed with the friends list. The away messages are store in the UserStatus file.
+
+Chatter.py is a GUI that is meant to work with the client app, but it has not been implemented at this time.
+
+Known issues:
+-The MessageQueue has been problematic, since there is nothing protecting it from being opened by both clients.
+-When the client is closed unexpectedly, the UserStatus text file is not updated to NOT_ACTIVE, and this breaks the program on next launch
+-The friends list will get stuck in a loop when less than 2 people are logged in. 
+
